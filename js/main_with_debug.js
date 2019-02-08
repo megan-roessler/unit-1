@@ -13,16 +13,16 @@ function cities(){
 			population: 233209
 		},
 		{
-			city: 'Milwaukee',
-			population: 594833
+			city: 'Seattle',
+			population: 724745
 		},
 		{
-			city: 'Green Bay',
-			population: 104057
+			city: 'Vancouver',
+			population: 631490
 		},
 		{
-			city: 'Superior',
-			population: 27244
+			city: 'Waco',
+			population: 136436
 		}
 	];
 
