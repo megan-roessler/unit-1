@@ -1,8 +1,8 @@
 //initialize function called when the script loads
 //add parameters and log to console
-function initialize(cities, addColumns, addEvents){
-	
-}
+function initialize(){
+	cities();
+};
 
 //function to create a table with cities and their populations
 function cities(){
@@ -104,8 +104,8 @@ function addEvents(){
 	};
 
 	$('table').on('click', clickme);
-});
-
+    });
+};
 //call the initialize function when the document has loaded
 //add missing bracket
-$(document).ready(initialize)};
+$(document).ready(initialize);
