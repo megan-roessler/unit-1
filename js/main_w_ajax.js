@@ -2,7 +2,8 @@
 //add parameters and log to console
 function initialize(){
 	cities();
-	jQueryAjax();
+	debugAjax();
+	debugCallback();
 };
 
 //function to create a table with cities and their populations
@@ -108,26 +109,56 @@ function addEvents(){
     });
 };
 
-function jQueryAjax(){
-    //define a variable to hold the data
-    var mydata;
+//COMMENTED OUT CODE FROM MODULE 3 DIRECTIONS
+//added console.log to access data
+//cannot access because data is defined in line 116
+//console.log(mydata);
 
+//function jQueryAjax(){
+    //define a variable to hold the data
+    //var mydata;
+	
     //basic jQuery ajax method
-    $.ajax("data/MegaCities.geojson", {
-        dataType: "json",
-        success: function(response){
-            mydata = response;
+    //$.ajax("data/MegaCities.geojson", {
+       // dataType: "json",
+        //success: function(response){
+            //mydata = response;
 
             //check the data
-            console.log(mydata);
-        }
-    });
+            //console.log(mydata);
+        //}
+    //});
 
     //check the data
-    console.log(mydata);
+    //console.log(mydata);
+//};
+//added console.log to access data
+//cannot access because console.log is outside of the function
+//console.log(mydata);
+
+function debugAjax(){
+	//add equal sign to define mydata
+	var mydata = $.ajax("data/MegaCities.geojson", {
+		dataType: "json",
+		success: function(response){
+		}
+	});
+	console.log(mydata);
+	//add missing / to </br>
+	$(mydiv).append('<br>GeoJSON data:</br>' + JSON.stringify(mydata));
 };
 
-$(document).ready(jQueryAjax);
+function debugCallback(response){
+	//comment out repeat
+	// $(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+};
+
+//comment out repeat?
+//$(mydiv).append('GeoJSON data: ' + JSON.stringify(mydata));
+
+//FROM MODULE 3 DIRECTIONS
+//$(document).ready(jQueryAjax);
+
 //call the initialize function when the document has loaded
 //add missing bracket
 $(document).ready(initialize);

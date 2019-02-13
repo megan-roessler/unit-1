@@ -7,7 +7,32 @@ function initialize(){
     cities();
 	addColumns();
 	addEvents();
+	jsAjax();
 };
+
+function jsAjax(){
+	//Create request
+	var ajaxRequest = new XMLHttpRequest();
+	//Create event handler
+	ajaxRequest.onreadystatechange = function(){
+		if (ajaxRequest.readyState == 4){
+			callback(ajaxRequest.response);
+		};
+	};
+	//Open server connection
+	ajaxRequest.open('GET', 'data/MegaCities.geojson', true);
+	//Set the response data type
+	ajaxRequest.responseType = "json";
+	//Send the request
+	ajaxRequest.send();
+};
+
+//Define callback function
+function callback(response){
+	console.log(response)
+};
+
+window.onload = jsAjax();
 
 //function to create a table with cities and their populations
 	function cities(){
@@ -127,8 +152,6 @@ function addEvents(){
 };
 
 
-
-//call the initialize function when the window has loaded
-window.onload = initialize();
-//added missing }; listed as error
 };
+//call the initialize function when the window has loaded
+$(document).ready(initialize);
